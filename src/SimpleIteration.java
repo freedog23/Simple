@@ -7,7 +7,7 @@ import java.util.List;
 public class SimpleIteration {
     public static void main(String[] args) {
         List<Pet> pets = Pets.arrayList(12);
-
+        
         Iterator<Pet> iterator = pets.iterator();
 
         while(iterator.hasNext()) {
@@ -15,13 +15,21 @@ public class SimpleIteration {
             System.out.print(p.id() + " " + p + " ");
         }
         System.out.println();
-
-        for(Pet p : pets)
+    
+        for(Pet p : pets) 
             System.out.print(p.id() + " " + p + " ");
         System.out.println();
+
+        iterator = pets.iterator();
+
+        for(int i = 0; i < 6; i++) {
+            iterator.next();
+            iterator.remove();
+        }
         
-        for(int i = 0; i < 6; i++)
-            pets.remove(i);
-        System.out.println(pets);
+        for(Pet p : pets) 
+            System.out.print(p.id() + " " + p + " ");
+        System.out.println();
+                
     }
 }
