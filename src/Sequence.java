@@ -6,12 +6,12 @@ interface Selector {
 public class Sequence {
     private Object[] items;
     private int next = 0;
-    
+
     Sequence(int sizeOfArray) { items = new Object[sizeOfArray]; }
     
-    void add(Object x) { if (next < items.length) items[next++] = x; }
+    void add(Object x) { if(next < items.length) items[next++] = x; }
     
-    Selector selector() {
+    public Selector selector() {
         return new Selector() {
             private int count = 0;
 
@@ -22,7 +22,7 @@ public class Sequence {
             public Object current() { return items[count]; }
 
             @Override
-            public void next() { if (count < items.length) count++; }
+            public void next() { if(count < items.length) count++; }
         };
     }
 
@@ -32,8 +32,9 @@ public class Sequence {
             sequence.add(Integer.toString(i + 1));
         
         Selector selector = sequence.selector();
+        
         while(!selector.end()) {
-            System.out.println(selector.current() + " ");
+            System.out.print(selector.current() + " ");
             selector.next();
         }
     }

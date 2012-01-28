@@ -18,6 +18,8 @@ public class AddingGroups {
         List<Integer> list = Arrays.asList(15, 17, 18, 19, 20);
 
         list.set(0, 16);
+        list.add(21); // ошибка времени выполнения нижележащий массив не должен изменяться в размерах.
+
         
         collection.addAll(list);
 

@@ -8,16 +8,16 @@ import java.util.Arrays;
  * To change this template use File | Settings | File Templates.
  */
 public class ArraysIsNotIterable {
-    static<T> void print(Iterable<T> ib) {
-        for(T t : ib)
+    
+    static<T> void print(Iterable<T> it) {
+        for(T t : it)
             System.out.print("'" + t + "' ");
-        System.out.println();
+        System.out.println();    
     }
 
     public static void main(String[] args) {
         print(Arrays.asList(1, 2, 3));
-        String[] string = {"A", "B", "C"};
+        String[] string = ("A, B, C".split(", "));
         print(Arrays.asList(string));
     }
 }
-
