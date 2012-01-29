@@ -10,18 +10,15 @@ public class Sequence {
     Sequence(int sizeOfArray) { items = new Object[sizeOfArray]; }
     
     void add(Object x) { if(next < items.length) items[next++] = x; }
-    
+
     public Selector selector() {
         return new Selector() {
             private int count = 0;
 
-            @Override
             public boolean end() { return count == items.length; }
 
-            @Override
             public Object current() { return items[count]; }
 
-            @Override
             public void next() { if(count < items.length) count++; }
         };
     }
