@@ -9,14 +9,14 @@ public class SimpleIteration {
         List<Pet> pets = Pets.arrayList(12);
         
         Iterator<Pet> iterator = pets.iterator();
-
+        
         while(iterator.hasNext()) {
             Pet p = iterator.next();
             System.out.print(p.id() + " " + p + " ");
         }
         System.out.println();
-    
-        for(Pet p : pets) 
+        
+        for(Pet p : pets)
             System.out.print(p.id() + " " + p + " ");
         System.out.println();
 
@@ -26,10 +26,9 @@ public class SimpleIteration {
             iterator.next();
             iterator.remove();
         }
-        
-        for(Pet p : pets) 
+
+        for(Pet p : pets)
             System.out.print(p.id() + " " + p + " ");
         System.out.println();
-                
     }
 }
