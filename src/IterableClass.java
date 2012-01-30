@@ -13,13 +13,13 @@ import java.util.Scanner;
 public class IterableClass implements Iterable<String> {
     private int index = 0;
     private String[] words;
-
+    
     IterableClass() {
-        System.out.print("Input your string: ");
+        System.out.print("Input stirng: ");
         Scanner in = new Scanner(System.in);
         words = in.nextLine().split(" ");
     }
-
+    
     public Iterator<String> iterator() {
         return new Iterator<String>() {
             @Override
@@ -35,6 +35,6 @@ public class IterableClass implements Iterable<String> {
 
     public static void main(String[] args) {
         for(String s : new IterableClass())
-            System.out.print("'" + s + "' ");
+            System.out.println(s + " ");
     }
 }
