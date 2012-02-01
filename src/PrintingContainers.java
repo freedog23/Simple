@@ -15,7 +15,7 @@ public class PrintingContainers {
         map.put("cat","Rags");
         map.put("dog","Bosco");
         map.put("dog","Spot");
-        
+
         return map;
     }
 

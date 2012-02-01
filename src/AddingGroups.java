@@ -3,7 +3,7 @@ import java.util.*;
 public class AddingGroups {
 
     public static void main(String[] args) {
-        
+
         Collection<Integer> collection =
                 new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
         

@@ -9,7 +9,6 @@ class ButtonAnonymousPanel extends JPanel {
         JButton button = new JButton(name);
         add(button);
         button.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 setBackground(color);
             }
