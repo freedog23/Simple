@@ -11,21 +11,33 @@ public class MiniDuckSimulator {
     public static void main(String[] args) {
 
         Duck mallardDuck = new MallardDuck();
+
         mallardDuck.display();
         mallardDuck.performFly();
         mallardDuck.performQuack();
         System.out.println();
-        
+
+
+
         Duck modelDuck = new ModelDuck();
+
         modelDuck.display();
         modelDuck.performFly();
         modelDuck.performQuack();
         System.out.println();
 
-        modelDuck.setFlyBehavior(new FlyRocketPowered());
+        /* change Behavior dynamic*/
+
         modelDuck.display();
+        modelDuck.setFlyBehavior(new FlyRocketPowered());
         modelDuck.performFly();
         modelDuck.performQuack();
+        System.out.println();
+
+        /* Behavior quack only*/
+
+        QuackBehavior decoyDuck = new DecoyDuck();
+        decoyDuck.quack();
         System.out.println();
     }
 }
