@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class StackTest {
     public static void main(String[] args) {
         Stack<String> stack1 = new Stack<String>();
@@ -20,4 +18,3 @@ public class StackTest {
         System.out.println();
     }
 }
-

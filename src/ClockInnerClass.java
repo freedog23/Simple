@@ -7,24 +7,24 @@ import java.util.Date;
 class TalkingClock {
     private int interval;
     private boolean beep;
-    
+
     TalkingClock(int interval, boolean beep) {
         this.interval = interval;
         this.beep = beep;
     }
 
-    private class TimePrinter implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            Date now = new Date();
-            System.out.println("At the tone, the time is " + now);
-            if (beep) Toolkit.getDefaultToolkit().beep();
-        }
-    }
-
-    public void start() {
-        TimePrinter listener = new TimePrinter();
+    void start() {
+        TimePrinterListener listener = new TimePrinterListener();
         Timer clock = new Timer(interval, listener);
         clock.start();
+    }
+    
+    private class TimePrinterListener implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            Date now = new Date();
+            System.out.println("At the tone, the time is " + now);
+            if(beep) Toolkit.getDefaultToolkit().beep();
+        }
     }
 }
 
