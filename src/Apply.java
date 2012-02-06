@@ -10,21 +10,3 @@ public class Apply {
         
     }
 }
-
-
-
-/*
-interface Processor {
-
-    String getProcessorName();
-    Object process(Object inputStringValue);
-}
-
-public class Apply {
-    public static void process(Processor p, String s) {
-        System.out.println("Используется процесс: " + p.getProcessorName());
-        System.out.println(p.process(s));
-
-    }
-}
-*/
