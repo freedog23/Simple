@@ -1,4 +1,4 @@
-package WeatherStation;
+package Patterns.WeatherStation;
 
 /**
  * Created by IntelliJ IDEA.

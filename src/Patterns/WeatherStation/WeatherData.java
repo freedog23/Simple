@@ -1,4 +1,4 @@
-package WeatherStation;
+package Patterns.WeatherStation;
 
 import java.util.ArrayList;
 
