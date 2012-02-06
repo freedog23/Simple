@@ -14,7 +14,6 @@ class ActionTestPanel extends JPanel {
             putValue("color", color);
         }
         
-        @Override
         public void actionPerformed(ActionEvent e) {
             setBackground((Color)getValue("color"));
         }

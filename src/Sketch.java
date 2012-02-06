@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.Collections;
 
 class SketchPanel extends JPanel {
     private static final int LARGE_STEP = 5;
@@ -82,7 +81,7 @@ class SketchPanel extends JPanel {
             char keyChar = e.getKeyChar();
             int step;
             
-            step = Character.isUpperCase(keyChar) ? LARGE_STEP : SHORT_STEP;
+            step = java.lang.Character.isUpperCase(keyChar) ? LARGE_STEP : SHORT_STEP;
                 
             if (keyChar == 'a' || keyChar == 'A') add(-step, 0);
             else if (keyChar == 'd' || keyChar == 'D') add(step, 0);
