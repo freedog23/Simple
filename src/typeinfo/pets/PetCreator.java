@@ -34,10 +34,10 @@ public abstract class PetCreator {
         return result;
     }
 
-    public ArrayList<Pet> arrayList(int size) {
+    public ArrayList<Pet> arrayList(int inputSize) {
 
         ArrayList<Pet> result = new ArrayList<Pet>();
-        Collections.addAll(result, createArray(size));
+        Collections.addAll(result, createArray(inputSize));
 
         return result;
     }

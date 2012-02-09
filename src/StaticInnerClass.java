@@ -34,7 +34,7 @@ class ArrayAlg {
         
         ArrayAlg.Pair p = ArrayAlg.elementMinMax(d);
         
-        for(double i : d) 
+        for(double i : d)
             System.out.print(i + " ");
         
         System.out.println();

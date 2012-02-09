@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by IntelliJ IDEA.
@@ -7,42 +8,40 @@ import java.util.ArrayList;
  * Time: 2:32
  * To change this template use File | Settings | File Templates.
  */
+
 public class ArrayWorkFile {
     private ArrayList<String> string;
     
-    ArrayWorkFile() {
-        string = new ArrayList<String>();
+    ArrayWorkFile(String filePath) {
 
         try {
-            InputFile fileIn = new InputFile("src/aaa.txt");
+                InputFile in = new InputFile(filePath);
+                string = new ArrayList<String>();
 
-            try {
-                String s;
-                while((s = fileIn.getLine()) != null) {
-                    for(String c : s.split(" "))
-                        string.add(c);
+                try {
+
+                    String s;
+                    while((s = in.getLine()) != null)
+                        Collections.addAll(string, s.split(" "));
+        
+                } catch(Exception e) {
+                        e.printStackTrace();    
+                    
+                } finally {
+                    in.dispose();
+                    
                 }
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
-            finally {
-                fileIn.dispose();
-            }
+        } catch(Exception e) {
+                System.out.println("Error");
         }
-        catch(Exception e) {
-            System.out.println("Error.");
-        }
-
     }
     
-    public void printArray() { 
-        for(String s : string) 
-            System.out.println("'" + s + "' ");
+    public void printArray() {
+        System.out.println(string);
     }
 
     public static void main(String[] args) {
-        ArrayWorkFile a = new ArrayWorkFile();
-        a.printArray();
+        ArrayWorkFile openFile = new ArrayWorkFile("src/aaa.txt");
+        openFile.printArray();
     }
 }
