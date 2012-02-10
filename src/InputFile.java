@@ -9,96 +9,48 @@ import java.io.*;
  */
 
 public class InputFile {
-    private BufferedReader readBuffer;
+    private BufferedReader in;
     
-    InputFile(String pathFile) throws Exception {
-        
+    InputFile(String filename) throws Exception {
+    
         try {
-                readBuffer = new BufferedReader(new FileReader(pathFile));
-
+                in = new BufferedReader(new FileReader(filename));
+        
         } catch(FileNotFoundException e) {
                 System.out.println("File not found");
                 throw e;
-
+        
         } catch(Exception e) {
-                try {
-                        readBuffer.close();
-                
+                try {   
+                        in.close();
+                                
                 } catch(IOException e2) {
-                        System.out.println("Internal error. Cannot close operation");
+                        System.out.println("Internal error, can't close file");
                 }
-                
                 throw e;
-        }       
+        }
     }
-    
     public String getLine() {
         String s;
-        
+
         try {
-                s = readBuffer.readLine();
-        
+                s = in.readLine();
+            
         } catch(IOException e) {
-                throw new RuntimeException("Cannot read line");
+                throw new RuntimeException("Cannot read line");    
+            
         }
-    
         return s;
     }
-
+    
     public void dispose() {
-
         try {
-                readBuffer.close();
+                in.close();
+                System.out.println("Reading file was complete");
+        
         } catch(IOException e2) {
-                throw new RuntimeException("Cannot close operation");
+                throw new RuntimeException("Cannot close line");
+            
         }
     }
 }
-
-
-/*
-public class InputFile {
-    private BufferedReader incoming;
-
-    InputFile(String nameFile) throws Exception {
-
-        try {
-            incoming = new BufferedReader(new FileReader(nameFile));
-        }
-        catch(FileNotFoundException e) {
-            System.out.println("File not found, please correct name of file");
-            throw e;
-        }
-        catch(Exception e) {
-            try {
-                incoming.close();
-            }
-            catch(IOException e2) {
-                System.out.println("Error, cannot close file.");
-            }
-            throw e;
-        }
-    }
-
-    public String getLine() {
-        String s;
-
-        try {
-            s = incoming.readLine();
-        }
-        catch(IOException e) {
-            throw new RuntimeException("Cannot read line in current file");
-        }
-        return s;
-    }
-
-    public void dispose() {
-        try {
-            incoming.close();
-            System.out.println("File read success");
-        }
-        catch(IOException e2) {
-            throw new RuntimeException("Error, cannot close file.");
-        }
-    }
-}*/

@@ -9,39 +9,37 @@ import java.util.Collections;
  * To change this template use File | Settings | File Templates.
  */
 
+
 public class ArrayWorkFile {
     private ArrayList<String> string;
     
-    ArrayWorkFile(String filePath) {
-
+    ArrayWorkFile(String filename) {
         try {
-                InputFile in = new InputFile(filePath);
+                InputFile in = new InputFile(filename);
                 string = new ArrayList<String>();
-
-                try {
-
+            
+            try {
                     String s;
                     while((s = in.getLine()) != null)
                         Collections.addAll(string, s.split(" "));
-        
-                } catch(Exception e) {
-                        e.printStackTrace();    
-                    
-                } finally {
+            
+            } catch(Exception e) {
+                    e.printStackTrace();
+            
+            } finally {
                     in.dispose();
-                    
-                }
+            }
+
+
         } catch(Exception e) {
                 System.out.println("Error");
         }
     }
     
-    public void printArray() {
-        System.out.println(string);
-    }
+    public void printArray() { System.out.println(string); }
 
     public static void main(String[] args) {
-        ArrayWorkFile openFile = new ArrayWorkFile("src/aaa.txt");
-        openFile.printArray();
+        ArrayWorkFile f = new ArrayWorkFile("src/aaa.txt");
+        f.printArray();
     }
 }
