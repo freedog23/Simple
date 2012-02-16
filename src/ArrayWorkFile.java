@@ -14,6 +14,7 @@ public class ArrayWorkFile {
     private ArrayList<String> string;
     
     ArrayWorkFile(String filename) {
+        
         try {
                 InputFile in = new InputFile(filename);
                 string = new ArrayList<String>();
@@ -22,24 +23,25 @@ public class ArrayWorkFile {
                     String s;
                     while((s = in.getLine()) != null)
                         Collections.addAll(string, s.split(" "));
-            
+                
             } catch(Exception e) {
-                    e.printStackTrace();
-            
+                    e.printStackTrace();        
+                
             } finally {
-                    in.dispose();
+                    in.dispose();                    
+                
             }
-
-
+        
         } catch(Exception e) {
                 System.out.println("Error");
+        
         }
     }
     
     public void printArray() { System.out.println(string); }
 
     public static void main(String[] args) {
-        ArrayWorkFile f = new ArrayWorkFile("src/aaa.txt");
-        f.printArray();
+        ArrayWorkFile readFile = new ArrayWorkFile("src/aaa.txt");
+        readFile.printArray();
     }
 }

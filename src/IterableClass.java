@@ -9,7 +9,6 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 
-
 public class IterableClass implements Iterable<String> {
     private int index = 0;
     private String[] words;

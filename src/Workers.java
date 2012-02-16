@@ -11,11 +11,11 @@ import java.util.Collections;
 public class Workers {
     public static void main(String[] args) {
         ArrayList<Employee> workers = new ArrayList<Employee>();
-        workers.add(new Employee("Piter Pen", 5000, 1980, 12, 1));
+        workers.add(new Employee("Piter Pen", 2000, 1980, 12, 1));
         workers.add(new Employee("Adams Cock", 10000, 1982, 11, 1));
         
         Employee[] w = new Employee[5];
-        w[0] = new Employee("Jhon Smidth", 5000, 1980, 12, 1);
+        w[0] = new Employee("Jhon Smidth", 2000, 1980, 12, 1);
         w[1] = new Employee("Antonio Banderas", 5000, 1992, 9, 2);
         w[2] = w[1];
         w[3] = new Manager("Bruce Willis", 10000, 1970, 9, 3);
@@ -27,7 +27,6 @@ public class Workers {
                 System.out.println(w[i].equals(w[y]) + "\n");
 
             }
-
         Collections.addAll(workers, w);
        
         for(Employee e : workers)

@@ -1,3 +1,4 @@
+import java.awt.datatransfer.StringSelection;
 import java.io.*;
 
 /**
@@ -8,37 +9,82 @@ import java.io.*;
  * To change this template use File | Settings | File Templates.
  */
 
+
 public class InputFile {
     private BufferedReader in;
     
     InputFile(String filename) throws Exception {
-    
-        try {
+        try {   
                 in = new BufferedReader(new FileReader(filename));
-        
+            
         } catch(FileNotFoundException e) {
-                System.out.println("File not found");
-                throw e;
+            System.out.println("File not found");
+            throw e;    
         
         } catch(Exception e) {
-                try {   
+                try {
                         in.close();
-                                
+                    
                 } catch(IOException e2) {
-                        System.out.println("Internal error, can't close file");
+                    System.out.println("Internal error, can't close file");
                 }
                 throw e;
         }
     }
     public String getLine() {
         String s;
-
         try {
                 s = in.readLine();
-            
+
         } catch(IOException e) {
-                throw new RuntimeException("Cannot read line");    
-            
+                throw new RuntimeException("Can't read current line");
+        }
+        return s;
+    }
+
+    public void dispose() {
+        try {
+                in.close();
+                System.out.println("Reading success");
+        } catch(IOException e) {
+            throw new RuntimeException("Internal error. Cant close file.");
+        }
+    }
+
+}
+
+/*
+public class InputFile {
+    private BufferedReader in;
+    
+    InputFile(String filename) throws Exception {
+        try {
+                in = new BufferedReader(new FileReader(filename));
+                
+        } catch(FileNotFoundException e) {
+                System.out.println("File not found.");
+                throw e;
+
+        } catch(Exception e) {
+                try {
+                        in.close();
+
+                } catch(IOException e2) {
+                        System.out.println("Internal error. Cannot close file.");
+
+                }
+                throw e;
+        }       
+    }
+
+    public String getLine() {
+        String s;
+        try {
+                s = in.readLine();
+
+        } catch(IOException e) {
+                throw new RuntimeException("Can't read current line");
+
         }
         return s;
     }
@@ -47,10 +93,11 @@ public class InputFile {
         try {
                 in.close();
                 System.out.println("Reading file was complete");
-        
-        } catch(IOException e2) {
-                throw new RuntimeException("Cannot close line");
             
+        } catch(IOException e2) {
+                throw new RuntimeException("Internal error. Cant close file.");
+
         }
     }
 }
+*/
