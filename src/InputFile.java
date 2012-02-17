@@ -12,7 +12,6 @@ public class InputFile {
     private BufferedReader in;
     
     InputFile(String filename) throws Exception {
-    
         try {
                 in = new BufferedReader(new FileReader(filename));
         
@@ -48,7 +47,7 @@ public class InputFile {
                 in.close();
                 System.out.println("Reading file was complete");
         
-        } catch(IOException e2) {
+        } catch(IOException e) {
                 throw new RuntimeException("Cannot close line");
             
         }

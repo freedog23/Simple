@@ -25,9 +25,9 @@ public class WeatherData implements WeatherSubject {
     public void removeObserver(WeatherObserver observer) {
         observers.remove(observer);
     }
-    
+
     public void notifyObserver() {
-        for(WeatherObserver observer : observers) 
+        for(WeatherObserver observer : observers)
             observer.update(temperature, humidity, pressure);
     }
 

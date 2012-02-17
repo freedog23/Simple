@@ -9,32 +9,28 @@ import java.util.Scanner;
  * To change this template use File | Settings | File Templates.
  */
 
-
 public class IterableClass implements Iterable<String> {
-    private int index = 0;
+    private int next = 0;
     private String[] words;
     
     IterableClass() {
-        System.out.print("Input stirng: ");
         Scanner in = new Scanner(System.in);
+        System.out.print("Please, input your string:");
         words = in.nextLine().split(" ");
     }
     
     public Iterator<String> iterator() {
         return new Iterator<String>() {
-            @Override
-            public boolean hasNext() { return index < words.length; }
 
-            @Override
-            public String next() { return words[index++]; }
-
-            @Override
+            public boolean hasNext() { return next < words.length; }
+            public String next() { return words[next++]; }
             public void remove() { throw new UnsupportedOperationException(); }
         };
     }
-
+    
     public static void main(String[] args) {
-        for(String s : new IterableClass())
-            System.out.println(s + " ");
+        IterableClass ic = new IterableClass();
+        for(String s : ic)
+            System.out.print("'" + s + "' ");
     }
 }

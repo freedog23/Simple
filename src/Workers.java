@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.TreeSet;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,7 +21,8 @@ public class Workers {
         w[2] = w[1];
         w[3] = new Manager("Bruce Willis", 10000, 1970, 9, 3);
         w[4] = new Employee("Jhon Smidth", 5000, 1980, 12, 1);
-        
+
+
         for(int i = 0; i < w.length; i++)
             for(int y = i + 1; y < w.length; y++) {
                 System.out.println(w[i] + "\n" + w[y]);
@@ -29,7 +31,7 @@ public class Workers {
             }
 
         Collections.addAll(workers, w);
-       
+
         for(Employee e : workers)
             System.out.println(e);
         

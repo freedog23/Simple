@@ -44,12 +44,12 @@ class Employee extends Person implements Comparable<Employee> {
                 && hireDay.equals(other.hireDay);
     }
 
-    /*@Override
+    @Override
     public int hashCode() {
         return 11 * getName().hashCode()
                 + 7 * new Double(salary).hashCode()
                 + 13 * hireDay.hashCode();
-    }*/
+    }
 
     public int compareTo(Employee other) {
 
