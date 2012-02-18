@@ -19,13 +19,17 @@ public class StarbuzzCoffee {
         System.out.println(coffeeDarkRoast.getDescription()
                 + " " + coffeeDarkRoast.cost() + "$");
 
-        Beverage coffeeHouseBlend =  new HouseBlend();
+        /*Beverage coffeeHouseBlend =  new HouseBlend();
         coffeeHouseBlend = new Soy(coffeeHouseBlend);
         coffeeHouseBlend = new Mocha(coffeeHouseBlend);
         coffeeHouseBlend = new Whip(coffeeHouseBlend);
         coffeeHouseBlend = new Cup(coffeeHouseBlend);
         System.out.println(coffeeHouseBlend.getDescription()
                 + " " + coffeeHouseBlend.cost() + "$");
-
+*/
+        Beverage coffeeHouseBlend = new Cup(new Whip(new Mocha(new Soy(new HouseBlend()))));
+        System.out.println(coffeeHouseBlend.getDescription()
+                + " " + coffeeHouseBlend.cost() + "$");
+        
     }
 }

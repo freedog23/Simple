@@ -14,90 +14,42 @@ public class InputFile {
     private BufferedReader in;
     
     InputFile(String filename) throws Exception {
-        try {   
+        try {
                 in = new BufferedReader(new FileReader(filename));
             
         } catch(FileNotFoundException e) {
-            System.out.println("File not found");
-            throw e;    
-        
-        } catch(Exception e) {
-                try {
-                        in.close();
-                    
-                } catch(IOException e2) {
-                    System.out.println("Internal error, can't close file");
-                }
+                System.out.println("File not found");
                 throw e;
+
+        } catch(Exception e) {
+            try {
+                    in.close();
+
+            } catch(IOException e2) {
+                System.out.println("Internal error, can't close file.");
+            }
+            throw e;
         }
     }
-    public String getLine() {
+
+    public String getLine() throws IOException{
         String s;
         try {
                 s = in.readLine();
 
         } catch(IOException e) {
-                throw new RuntimeException("Can't read current line");
-        }
-        return s;
-    }
-
-    public void dispose() {
-        try {
-                in.close();
-                System.out.println("Reading success");
-        } catch(IOException e) {
-            throw new RuntimeException("Internal error. Cant close file.");
-        }
-    }
-
-}
-
-/*
-public class InputFile {
-    private BufferedReader in;
-    
-    InputFile(String filename) throws Exception {
-        try {
-                in = new BufferedReader(new FileReader(filename));
-                
-        } catch(FileNotFoundException e) {
-                System.out.println("File not found.");
-                throw e;
-
-        } catch(Exception e) {
-                try {
-                        in.close();
-
-                } catch(IOException e2) {
-                        System.out.println("Internal error. Cannot close file.");
-
-                }
-                throw e;
-        }       
-    }
-
-    public String getLine() {
-        String s;
-        try {
-                s = in.readLine();
-
-        } catch(IOException e) {
-                throw new RuntimeException("Can't read current line");
-
+                throw new RuntimeException("Internal error, can't read line");
         }
         return s;
     }
     
     public void dispose() {
-        try {
+        try {    
                 in.close();
-                System.out.println("Reading file was complete");
+                System.out.println("Reading was complite");
             
-        } catch(IOException e2) {
-                throw new RuntimeException("Internal error. Cant close file.");
-
+        } catch(IOException e) {
+                throw new RuntimeException("Internal error, can't read line");
         }
     }
 }
-*/
