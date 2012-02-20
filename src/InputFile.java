@@ -1,3 +1,4 @@
+import java.awt.datatransfer.StringSelection;
 import java.io.*;
 
 /**
@@ -13,31 +14,30 @@ public class InputFile {
     
     InputFile(String filename) throws Exception {
         try {
-                in = new BufferedReader(new FileReader(filename));
-        
+            in = new BufferedReader(new FileReader(filename));
+            
         } catch(FileNotFoundException e) {
-                System.out.println("File not found");
-                throw e;
-        
+            System.out.println("File not found");
+            
         } catch(Exception e) {
-                try {   
-                        in.close();
-                                
-                } catch(IOException e2) {
-                        System.out.println("Internal error, can't close file");
-                }
-                throw e;
+            try {
+                in.close();    
+                
+            } catch(IOException e2) {
+                System.out.println("Internal error, can't close file");
+                
+            }
+            throw e;
         }
     }
+
     public String getLine() {
         String s;
-
         try {
-                s = in.readLine();
+            s = in.readLine();
             
         } catch(IOException e) {
-                throw new RuntimeException("Cannot read line");    
-            
+            throw new RuntimeException("Can't read line");
         }
         return s;
     }
@@ -49,7 +49,8 @@ public class InputFile {
         
         } catch(IOException e) {
                 throw new RuntimeException("Cannot close line");
-            
+           
+  
         }
     }
 }

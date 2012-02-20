@@ -23,7 +23,6 @@ class Cappuccino extends Coffee {}
 class Americano extends Coffee {}
 class Breve extends Coffee {}
 
-
 public class CoffeeGenerator implements GenFace<Coffee>, Iterable<Coffee>{
     private Class[] types = { Latte.class,
             Mocha.class, Cappuccino.class, Americano.class, Breve.class };

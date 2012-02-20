@@ -53,8 +53,10 @@ class Employee extends Person implements Comparable<Employee> {
 
     public int compareTo(Employee other) {
 
-        if (salary > other.salary) return 1;
+        return(salary < other.salary ? -1 : (salary == other.salary ? 0 : 1));
+
+        /*if (salary > other.salary) return 1;
         if (salary < other.salary) return -1;
-        return 0;
+        return 0;*/
     }
 }
