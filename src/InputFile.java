@@ -9,47 +9,46 @@ import java.io.*;
  * To change this template use File | Settings | File Templates.
  */
 
-
 public class InputFile {
     private BufferedReader in;
     
     InputFile(String filename) throws Exception {
         try {
-                in = new BufferedReader(new FileReader(filename));
+            in = new BufferedReader(new FileReader(filename));
             
         } catch(FileNotFoundException e) {
-                System.out.println("File not found");
-                throw e;
-
+            System.out.println("File not found");
+            
         } catch(Exception e) {
             try {
-                    in.close();
-
+                in.close();    
+                
             } catch(IOException e2) {
-                System.out.println("Internal error, can't close file.");
+                System.out.println("Internal error, can't close file");
+                
             }
             throw e;
         }
     }
 
-    public String getLine() throws IOException{
+    public String getLine() {
         String s;
         try {
-                s = in.readLine();
-
+            s = in.readLine();
+            
         } catch(IOException e) {
-                throw new RuntimeException("Internal error, can't read line");
+            throw new RuntimeException("Can't read line");
         }
         return s;
     }
     
     public void dispose() {
-        try {    
-                in.close();
-                System.out.println("Reading was complite");
-            
+        try {
+            in.close();
+            System.out.println("Reading file was complied");
+
         } catch(IOException e) {
-                throw new RuntimeException("Internal error, can't read line");
+            throw new RuntimeException("Internal error, can't close file");
         }
     }
 }

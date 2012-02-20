@@ -18,7 +18,7 @@ public class ArrayWorkFile {
         try {
                 InputFile in = new InputFile(filename);
                 string = new ArrayList<String>();
-            
+
             try {
                     String s;
                     while((s = in.getLine()) != null)
