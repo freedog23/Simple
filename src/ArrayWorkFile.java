@@ -12,7 +12,7 @@ import java.util.Collections;
 
 public class ArrayWorkFile {
     private ArrayList<String> string;
-    
+
     ArrayWorkFile(String filename) {
         
         try {
@@ -28,7 +28,7 @@ public class ArrayWorkFile {
                     e.printStackTrace();        
                 
             } finally {
-                    in.dispose();                    
+                    in.dispose();
                 
             }
         

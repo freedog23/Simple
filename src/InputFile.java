@@ -21,36 +21,36 @@ public class InputFile {
             
         } catch(Exception e) {
             try {
-                in.close();    
+                in.close();
                 
             } catch(IOException e2) {
-                System.out.println("Internal error, can't close file");
+                System.out.println("Internal error. Can't close file");
                 
             }
             throw e;
-        }
+        } 
     }
-
+    
     public String getLine() {
         String s;
         try {
             s = in.readLine();
-            
+
         } catch(IOException e) {
             throw new RuntimeException("Can't read line");
+
         }
         return s;
     }
     
     public void dispose() {
         try {
-                in.close();
-                System.out.println("Reading file was complete");
-        
+            in.close();  
+            System.out.println("Reading file was complete");
+            
         } catch(IOException e) {
-                throw new RuntimeException("Cannot close line");
-           
-  
+            throw new RuntimeException("Error, can't close");
         }
+        
     }
 }
