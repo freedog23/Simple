@@ -68,6 +68,89 @@ public static Instrument choose() {
 
 
 ========================
+equals()
+========================
+
+Спецификация языка Java требует чтобы метод equals() обладал следующими характеристиками.
+
+1) Рефлекснивность - для либой не нулевой ссылки x вызов x.equals(x) должен возвращать значение true
+
+2) Симметричность - для любых ссылок x и y вызов x.euqals(y) должен возвращать значение true тогда и 
+только тогда, когда y.equals(x) возвращает true
+
+3) Транзитивность - для любых ссылок x, y и z, если вызовы x.equals(y) и y.equals(z) возвращают значение
+true, вызов x.equals(z) должен возвращать значение true.
+
+4) Согласованность - если объекты на которые ссылались переменные x и y не изменяются, то повторный вызов
+x.equals(y) должен возвращать тоже значение
+
+5) для любой null-ссылки x вызов x.equals(null) должен возвращать значение false
+
+
+Пример переопределённого метода euqals() для сравнения двух объектов по содержимому
+
+Employee men = new Employee("Jhon", 10000);
+Employee women = new Employee("Sara", 10000);
+
+men.equals(women);
+
+
+public boolean euqals(Object other) {
+
+    if(this == other) return true;
+    if(other == null) return false;
+    if(getClass() != other.getClass()) return false;
+
+    Employee employee = (Employee)other;
+    
+    return name == employee.name 
+        && salary == salary.other; 
+}
+
+
+========================
+Клонирование объектов Clonable
+========================
+
+Если нужно создать точную копию объетка у которого все поля являются числовыми такое клонирование выполняется
+прекрасно. Получается два независимых объекта друг от друга. Такое клонирование называется поверхностным.
+
+public class Simple {
+
+    private Integer i;
+
+    Simple(int i) { this.i = i; }
+    
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Simple simple1 = new Simple(5);
+        Simple simple2 = (Simple)simple1.clone();
+
+    }
+}
+
+однако, если в полях класса есть ссылки на другие объекты не immutable (String) и не числовые, допустим Date hireDay;
+
+public class Employee implements Clonable {
+   private String name;
+   private double salary;
+   private Date hireDay;
+}
+
+в таком случае, нужно делать глубокое клонирование объекта. Класс должен реализовать интерфейс Clonable и переопределить
+в себе метод clone(). Далее, необходимо произвести поверхностное клонирование объекта, затем в дубликат клонировать отдельное
+поле.
+
+@Override
+public Employee clone() throws CloneNotSupportedException {
+    Employee cloned = (Employee)super.clone();
+    cloned.hireDay = (Date)hireDay.clone();
+    return cloned;    
+
+}
+
+
+
+========================
 this
 ========================
 
