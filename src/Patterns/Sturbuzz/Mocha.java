@@ -7,7 +7,7 @@ package Patterns.Sturbuzz;
  * Time: 20:07
  * To change this template use File | Settings | File Templates.
  */
-public class Mocha extends Beverage { //CondimentDecorator {
+public class Mocha extends CondimentDecorator {
     private Beverage beverage;
 
     public Mocha(Beverage beverage) {

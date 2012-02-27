@@ -9,7 +9,7 @@ import sun.plugin2.gluegen.runtime.CPU;
  * Time: 23:02
  * To change this template use File | Settings | File Templates.
  */
-public class Cup extends Beverage { // CondimentDecorator{
+public class Cup extends CondimentDecorator {
     private Beverage beverage;
 
     Cup(Beverage beverage) {

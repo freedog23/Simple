@@ -41,6 +41,5 @@ public class Workers {
 
         for(Employee e : workers)
             System.out.println(e);
-                
     }
 }
