@@ -26,7 +26,6 @@ public class LinkedStack<T> {
             top = top.next;
         
         return s;
-
     }
 
     public static void main(String[] args) {
