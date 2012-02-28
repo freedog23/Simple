@@ -7,34 +7,37 @@
  */
 
 public class LinkedStack<T> {
+    
     private static class Nude<U> {
         private U item;
-        private Nude<U> next;
-
-        Nude() { item = null; next = null; }
+        private Nude <U> next;
+        
+        Nude() { this.item = null; this.next = null; }
         Nude(U item, Nude<U> next) { this.item = item; this.next = next; }
 
-        boolean end() { return item == null && next == null; }
+        public boolean end() { return item == null && next == null; }
     }
-    private Nude<T> top = new Nude<T>();
     
-    public void push(T item) { top = new Nude<T>(item, top); }
-
+    private Nude<T> nude = new Nude<T>();
+    
+    public void push(T item) { nude = new Nude<T>(item, nude); }
+    
     public T pop() {
-        T s = top.item;
-        if (!top.end())
-            top = top.next;
-        
+        T s = nude.item;
+        if(!nude.end())
+            nude = nude.next;
         return s;
     }
 
     public static void main(String[] args) {
-        LinkedStack<String> string = new LinkedStack<String>();
+        LinkedStack<String> example = new LinkedStack<String>();
         for(String s : "Phasers on stun!".split(" "))
-            string.push(s);
-        
+            example.push(s);
+
         String s;
-        while((s = string.pop()) != null)
-            System.out.print("'" + s + "' ");
+        while((s = example.pop()) != null) {
+            System.out.print(" " + s + " ");
+        }
     }
+    
 }

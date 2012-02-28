@@ -41,6 +41,23 @@ public class Workers {
 
         for(Employee e : workers)
             System.out.println(e);
-                
+
+
+        Manager bruce = new Manager("Bruce Willis", 15000, 1970, 9, 3);
+
+        try {
+            
+            Manager cloneBruce = bruce.clone();
+
+            cloneBruce.setBonus(500);
+            bruce.setBonus(500);
+            System.out.println(cloneBruce);
+            System.out.println(bruce);
+            System.out.println(cloneBruce.equals(bruce));
+
+        } catch(CloneNotSupportedException e) {
+            System.out.println("Error clone object");
+        }
+
     }
 }
