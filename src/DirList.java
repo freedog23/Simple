@@ -13,6 +13,35 @@ import java.util.regex.Pattern;
  */
 
 public class DirList {
+    public static FilenameFilter filter(final String list) {
+        return new FilenameFilter() {
+            private Pattern pattern;
+            @Override
+            public boolean accept(File dir, String name) {
+                return pattern.matcher(name).matches();
+            }
+        };
+    }
+
+    public static void main(String[] args) {
+        File path = new File(".");
+        String[] list;
+        
+        if(args.length == 0)
+            list = path.list();
+        else 
+            list = path.list(filter(args[0]));
+        
+        Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);
+        
+        for(String s : list)
+            System.out.println(s);
+    }
+}
+
+
+/*
+public class DirList {
 
     public static void main(final String[] args) {
         File path = new File(".");
@@ -34,4 +63,4 @@ public class DirList {
         for(String s : list)
             System.out.println(s);
     }
-}
+}*/

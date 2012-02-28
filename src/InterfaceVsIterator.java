@@ -11,19 +11,20 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 
+
 public class InterfaceVsIterator {
     
     public static void display(Iterator<Pet> iterator) {
         while(iterator.hasNext()) {
-            Pet p = iterator.next();
-            System.out.print(p.id() + " " + p + " ");
+            Pet pets = iterator.next();
+            System.out.println(pets.id() + " " + pets);
         }
         System.out.println();
     }
     
     public static void display(Collection<Pet> collection) {
-        for(Pet p : collection)
-            System.out.print(p.id() + " " + p + " ");
+        for(Pet pets : collection)
+            System.out.println(pets.id() + " " + pets);
         System.out.println();
     }
 
@@ -32,20 +33,19 @@ public class InterfaceVsIterator {
         Set<Pet> petsSet = new HashSet<Pet>(petsList);
         Map<String,Pet> petsMap = new LinkedHashMap<String, Pet>();
         
-        String[] petsNames = ("Ralph, Eric, Robin, Lacey, " +
-                "Britney, Sam, Spot, Fluffy").split(", ");
+        String[] petsName = ("Ralph, Eric, Robin, Lacey, "
+                + "Britney, Sam, Spot, Fluffy").split(", ");
         
-        for(int i = 0; i < 8; i++)
-            petsMap.put(petsNames[i], petsList.get(i));
+        for(int i = 0; i < 8; i++) 
+            petsMap.put(petsName[i], petsList.get(i));
         
         display(petsList);
         display(petsSet);
-        display(petsList.iterator());
         display(petsSet.iterator());
-        
+
         System.out.println(petsMap);
         System.out.println(petsMap.keySet());
-        
+
         display(petsMap.values());
         display(petsMap.values().iterator());
     }

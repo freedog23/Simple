@@ -21,7 +21,6 @@ public class IterableClass implements Iterable<String> {
     
     public Iterator<String> iterator() {
         return new Iterator<String>() {
-
             public boolean hasNext() { return next < words.length; }
             public String next() { return words[next++]; }
             public void remove() { throw new UnsupportedOperationException(); }

@@ -58,6 +58,5 @@ public class Workers {
         } catch(CloneNotSupportedException e) {
             System.out.println("Error clone object");
         }
-
     }
 }

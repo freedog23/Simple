@@ -7,7 +7,7 @@ package Patterns.Sturbuzz;
  * Time: 21:04
  * To change this template use File | Settings | File Templates.
  */
-public class Whip extends Beverage { //CondimentDecorator {
+public class Whip extends CondimentDecorator {
     private Beverage beverage;
     
     Whip(Beverage beverage) {
