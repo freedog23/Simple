@@ -1,6 +1,4 @@
-import java.util.Arrays;
-
-class ArrayAlg {
+public class ArrayAlg {
     
     private static class Pair {
         private double min;
